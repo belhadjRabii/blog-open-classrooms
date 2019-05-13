@@ -1,0 +1,36 @@
+<div class="container">
+<p *ngIf="user">{{ user.firstName}}</p>
+
+  <form (ngSubmit)="onSubmitUser(f)" #f="ngForm" >
+
+    <!-- Name -->
+
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input class="form-control" type="text" placeholder='Firstname' name="firstName" id="firstName" ngModel required/>
+    </div>
+
+    <!--Lastname-->
+
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input class="form-control" type="text" placeholder="Lastname" name="lastName" id="lastName"ngModel required/>
+    </div>
+
+    <!-- email adresse -->
+    <div class="form-group">
+      <label for="mail">Email address</label>
+      <input type="email" class="form-control" id="mail" aria-describedby="emailHelp" placeholder="Enter email" name="mail" ngModel required email/>
+    </div>
+
+    <!-- password -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" placeholder="Password" name="password" ngModel required>
+    </div>
+
+    <button class="btn btn-primary" [disabled] = "!f.valid" >Add user </button>
+
+  </form>
+
+</div>

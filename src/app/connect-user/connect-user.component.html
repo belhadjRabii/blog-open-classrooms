@@ -1,0 +1,27 @@
+
+<div *ngIf="alertMessage" class="alert alert-danger" role="alert">
+  <strong>Oh snap!</strong> {{ alertMessage }}  not founded try submitting again.
+</div>
+
+<div class="container">
+
+  <form [formGroup]="userForm" (ngSubmit)="onSubmitToFoundUSer()"> <!-- a voir aprés les parametres-->
+
+    <div class="form-group">
+      <label for="mail">Email address</label>
+      <input type="email" class="form-control" id="mail" formControlName="mail" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password">
+    </div>
+
+    <button class="btn btn-primary">Sign In </button>
+    <small id="infoSignIn" class="form-text text-muted">
+      Don’t have an account? <a routerLink="/newUser">Sign up </a>
+    </small>
+
+  </form>
+
+</div>

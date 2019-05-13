@@ -1,0 +1,45 @@
+<div class="container">
+
+  <li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': loveIts > dontLoveIts,
+                'list-group-item-danger': loveIts < dontLoveIts}">
+
+        <div class="row">
+            <div class="col-sm-9">
+                <p>{{ post.titre }}</p>
+            </div>
+            <div class="col-sm-3">
+              <small class="dateColor">Published at : {{ post.date | date  }}</small>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+              <p> {{ post.contenu }} </p>
+            </div>
+        </div>
+
+      <div class="row">
+          <div class="col-sm-7">
+              <div class="btn-group">
+                <button type="button" class="btn btn-outline-success" (click)="likeIt()" [disabled]="isDisabled" ><small>Love it ! </small></button>
+                <button type="button" class="btn btn-outline-danger" (click)="dislikeIt()" [disabled]="isDisabled" ><small>Don't love it !</small> </button>
+                <button type="button" class="btn btn-outline-primary" (click)="goToPostToEditByID(id)" [disabled]="!isDisabled"><small>Edit</small> </button>
+                <button type="button" class="btn btn-outline-danger" (click)="deletePost(id)" [disabled]="!isDisabled" ><small>Delete </small> </button>
+              </div>
+          </div>
+          <div class="col-sm-2">
+            <small>Author : {{ user.firstName }}</small>
+          </div>
+          <div class="col-sm-3">
+            <small>Rate :</small>
+            <div class="progress" style="height: 5px; width: 50%">
+
+              <div class="progress-bar bg-success" role="progressbar"
+                   [ngStyle]="{width : getBarPercentage()}">
+              </div>
+            </div>
+          </div>
+      </div>
+  </li>
+</div>

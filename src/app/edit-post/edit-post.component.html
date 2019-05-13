@@ -1,0 +1,25 @@
+<div class="container">
+
+  <form (ngSubmit)="onSubmitToEdit(f)" #f="ngForm">
+
+    <div class="form-group">
+
+      <label for="title">Title:</label>
+      <input type="text" class="form-control" rows="5" id="title" name="title" ngModel="{{postTitle}}"/>
+    </div>
+
+    <div class="form-group">
+
+      <label for="content">Content:</label>
+      <textarea class="form-control" rows="5" id="content" name="content" ngModel="{{postContent}}">
+
+      </textarea>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="f.invalid"
+            >
+            Edit post </button>
+    <input type="hidden" id="id" name="id" ngModel="{{postID}}"/>
+
+  </form>
+  </div>
